@@ -1,37 +1,34 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import styled, { ThemeProvider } from 'styled-components';
-import { IAppState } from '../../background/store';
-import GlobalStyle from '../../components/styles/GlobalStyle';
-import { themes, ThemeTypes } from '../../components/styles/themes';
-import Counter from '../../containers/Counter';
+import * as React from "react";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import styled from "styled-components";
+import { IAppState } from "../../background/store";
+import { ILiwager } from "../../background/store/liwager";
+import GlobalStyle from "../../components/styles/GlobalStyle";
+import Liwager from "../../containers/Liwager";
 
 interface IOptionsApp {
-	theme: ThemeTypes;
-	dispatch: Dispatch;
+  liwager: ILiwager;
+  dispatch: Dispatch;
 }
 
 class OptionsApp extends React.Component<IOptionsApp> {
-
-	render() {
-		return (
-			<ThemeProvider theme={themes[this.props.theme]}>
-				<React.Fragment>
-					<GlobalStyle />
-					<OptionsAppContainer>
-						<Counter/>
-					</OptionsAppContainer>
-				</React.Fragment>
-			</ThemeProvider>
-		);
-	}
+  render() {
+    return (
+      <React.Fragment>
+        <GlobalStyle />
+        <OptionsAppContainer>
+          <Liwager />
+        </OptionsAppContainer>
+      </React.Fragment>
+    );
+  }
 }
 
 const mapStateToProps = (state: IAppState) => {
-	return {
-		theme: state.settings.theme
-	};
+  return {
+    liwager: state.liwager,
+  };
 };
 
 export default connect(mapStateToProps)(OptionsApp);
@@ -47,6 +44,4 @@ const OptionsAppContainer = styled('div')`
 	width: 90vw;
 	left: 5vw;
 	top: 5vh;
-	background-color: ${p => p.theme.backgroundColor};
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;

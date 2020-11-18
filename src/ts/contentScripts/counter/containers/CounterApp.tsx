@@ -1,44 +1,41 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import styled, { ThemeProvider } from 'styled-components';
-import { IAppState } from '../../../background/store';
-import { themes, ThemeTypes } from '../../../components/styles/themes';
-import Counter from '../../../containers/Counter';
+// import * as React from "react";
+// import { connect } from "react-redux";
+// import { Dispatch } from "redux";
+// import styled from "styled-components";
+// import { IAppState } from "../../../background/store";
+// import { ILiwager } from "../../../background/store/liwager";
+// import Liwager from "../../../containers/Liwager";
 
-interface ICounterApp {
-	theme: ThemeTypes;
-	dispatch: Dispatch;
-}
+// interface ILiwagerApp {
+//   liwager: ILiwager;
+//   dispatch: Dispatch;
+// }
 
-class CounterApp extends React.Component<ICounterApp> {
+// class LiwagerApp extends React.Component<ILiwagerApp> {
+//   render() {
+//     return (
+//       <React.Fragment>
+//         <LiwagerAppContainer>
+//           <Liwager />
+//         </LiwagerAppContainer>
+//       </React.Fragment>
+//     );
+//   }
+// }
 
-	render() {
-		return (
-			<ThemeProvider theme={themes[this.props.theme]}>
-				<React.Fragment>
-					<CounterAppContainer >
-						<Counter />
-					</CounterAppContainer>
-				</React.Fragment>
-			</ThemeProvider>
-		);
-	}
-}
+// const mapStateToProps = (state: IAppState) => {
+//   return {
+//     liwager: state.liwager,
+//   };
+// };
 
-const mapStateToProps = (state: IAppState) => {
-	return {
-		theme: state.settings.theme
-	};
-};
+// export default connect(mapStateToProps)(LiwagerApp);
 
-export default connect(mapStateToProps)(CounterApp);
-
-const CounterAppContainer = styled('div')`
-	position: fixed;
-	z-index: 9;
-	bottom: 0;
-	right: 0;
-	background-color: ${p => p.theme.backgroundColor};
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-`;
+// const LiwagerAppContainer = styled('div')`
+// 	position: fixed;
+// 	z-index: 9;
+// 	bottom: 0;
+// 	right: 0;
+// 	background-color: ${p => p.theme.backgroundColor};
+// 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+// `;

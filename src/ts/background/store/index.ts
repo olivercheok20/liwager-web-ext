@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import counter, { ICounter } from './counter/reducer';
-import settings, { IAppSettings } from './settings/reducer';
+import liwager, { ILiwager } from './liwager/reducer';
 
 import 'redux';
 // Enhance the Action interface with the option of a payload.
@@ -17,7 +17,7 @@ type OnError = (e: Error) => void;
 
 export interface IAppState {
 	counter: ICounter;
-	settings: IAppSettings;
+	liwager: ILiwager;
 }
 
 export const loadState = (): IAppState | undefined => {
@@ -44,7 +44,7 @@ export const saveState = (appstate: IAppState, success: OnSuccess = () => {}, er
 
 const reducers = combineReducers<IAppState>({
 	counter,
-	settings
+	liwager
 });
 
 export default reducers;
