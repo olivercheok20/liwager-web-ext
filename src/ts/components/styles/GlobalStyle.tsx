@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0;
 	}
 
-	p, b {
+	p, b, li {
 		font-size: 12px;
 	}
 `;

@@ -4,10 +4,12 @@ import { Dispatch } from "redux";
 import { IAppState } from "../background/store";
 import { change_page } from "../background/store/liwager/actions";
 import { ILiwager } from "../background/store/liwager/reducer";
+import Create from '../pages/Create';
 
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Register from '../pages/Register';
+import Verify from '../pages/Verify';
 
 interface ILiwagerProps {
   liwager: ILiwager;
@@ -23,6 +25,7 @@ class Liwager extends React.Component<ILiwagerProps> {
 
 	let page = null
 	switch (this.props.liwager.page) {
+	// switch ('create') {
 		case 'home':
 			page = <Home/>
 			break
@@ -31,6 +34,12 @@ class Liwager extends React.Component<ILiwagerProps> {
 			break
 		case 'register':
 			page = <Register/>
+			break
+		case 'verify':
+			page = <Verify/>
+			break
+		case 'create':
+			page = <Create/>
 			break
 		default:
 			page = <div></div>

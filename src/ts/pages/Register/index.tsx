@@ -64,7 +64,7 @@ class Register extends React.Component<ILiwagerProps> {
           <Button
             size="sm"
             color="primary"
-            onClick={() => this.change_page("home")}
+            onClick={() => this.change_page("verify")}
           >
             Register
           </Button>
